@@ -34,7 +34,18 @@ class App extends React.Component {
     //prevent button's default behavior of refreshing
     e.preventDefault();
     const newItem = this.state.currentItem;
-    console.log(newItem)
+    if(newItem.text !== ""){
+      //destructuring to add new items and clear input
+      const items=[...this.state.items, newItems]
+      this.setState({
+        items: newItems,
+        currentItem:{
+          text: '',
+          key: ''
+        }
+      })
+    }
+    
   }
 
 
