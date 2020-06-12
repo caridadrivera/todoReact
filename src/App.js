@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ItemsList from './ItemsList'
 
 
 class App extends React.Component {
@@ -33,8 +34,8 @@ class App extends React.Component {
   addItem(e){
     //prevent button's default behavior of refreshing
     e.preventDefault();
-    const newItem = this.state.currentItem;
-    if(newItem.text !== ""){
+    const newItems = this.state.currentItem;
+    if(newItems.text !== ""){
       //destructuring to add new items and clear input
       const items=[...this.state.items, newItems]
       this.setState({
@@ -61,8 +62,11 @@ class App extends React.Component {
               <button type="submit"> Add </button>
             </form>
         </div>
+        <ItemsList></ItemsList>
       </header>
+      
     )
+
   }
 }
 export default App;
