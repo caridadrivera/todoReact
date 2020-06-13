@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ItemsList from './ItemsList'
+import ListItems from './ItemsList'
 
 
 class App extends React.Component {
@@ -34,18 +34,19 @@ class App extends React.Component {
   addItem(e){
     //prevent button's default behavior of refreshing
     e.preventDefault();
-    const newItems = this.state.currentItem;
-    if(newItems.text !== ""){
-      //destructuring to add new items and clear input
-      const items=[...this.state.items, newItems]
-      this.setState({
-        items: newItems,
-        currentItem:{
-          text: '',
-          key: ''
-        }
-      })
-    }
+    const newItem = this.state.currentItem;
+    console.log(newItem)
+    // if(newItem.text !== ""){
+    //   //destructuring to add new items and clear input
+    //   const items=[...this.state.items, newItem]
+    //   this.setState({
+    //     items: newItem,
+    //     currentItem:{
+    //       text: '',
+    //       key: ''
+    //     }
+    //   })
+    // }
     
   }
 
@@ -53,17 +54,24 @@ class App extends React.Component {
 
   render() {
     return (
-      <header>
+      
         <div className="App">
+          <header>
           <form id="list-form" onSubmit={this.addItem}>
               <input type="text" placeholder="Enter test"
               value={this.state.currentItem.text}
               onChange={this.handleInput}/>
               <button type="submit"> Add </button>
             </form>
+          </header>
+          <ListItems items={this.state.items}></ListItems>
+      
+        
         </div>
-        <ItemsList></ItemsList>
-      </header>
+        //sending props to child component: items list. in order to display
+        
+        
+      
       
     )
 

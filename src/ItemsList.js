@@ -2,8 +2,17 @@ import React from 'react';
 import './ItemsList.css'
 
 function ListItems(props) {
+    console.log("am I here?", props)
+    const items = props.items
+    
+    const listItems = items.map(item => {
+        return <div className="list" key="item.key"> 
+            <p>{item.text}</p>
+
+        </div>
+    })
     return (
-        <h1>Hi</h1>
+        <div>{listItems} </div>
     )
 }
 
