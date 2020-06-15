@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ListItems from './ItemsList'
+import ListItems from './ItemsList';
 
 
 class App extends React.Component {
@@ -35,18 +35,18 @@ class App extends React.Component {
     //prevent button's default behavior of refreshing
     e.preventDefault();
     const newItem = this.state.currentItem;
-    console.log(newItem)
-    // if(newItem.text !== ""){
-    //   //destructuring to add new items and clear input
-    //   const items=[...this.state.items, newItem]
-    //   this.setState({
-    //     items: newItem,
-    //     currentItem:{
-    //       text: '',
-    //       key: ''
-    //     }
-    //   })
-    // }
+    console.log("adding new item", newItem)
+    if(newItem.text !== ""){
+      //destructuring to add new items and clear input
+      const addedItem = [...this.state.items, newItem]
+      this.setState({
+        items: addedItem,
+        currentItem:{
+          text: '',
+          key: ''
+        }
+      })
+    }
     
   }
 
@@ -63,7 +63,9 @@ class App extends React.Component {
               onChange={this.handleInput}/>
               <button type="submit"> Add </button>
             </form>
+          
           </header>
+          
           <ListItems items={this.state.items}></ListItems>
       
         
@@ -74,6 +76,7 @@ class App extends React.Component {
       
       
     )
+    console.log(this.state.items)
 
   }
 }
