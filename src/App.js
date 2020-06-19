@@ -67,13 +67,8 @@ class App extends React.Component {
           </header>
           
           <ListItems items={this.state.items}></ListItems>
-    
-          
-      
-        
         </div>
         //sending props to child component: items list. in order to display
-        
         
       
       

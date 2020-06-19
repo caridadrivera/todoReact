@@ -1,4 +1,10 @@
 .list {
-    display: flex;
-    
+    border: dotted;
+    width: 100px;
+    height: 40px;
+    margin: 20px auto;
+}
+
+.list p {
+    padding: 1px 10px;
 }
