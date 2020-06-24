@@ -5,8 +5,12 @@ import ListItems from './ItemsList';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
+//add trash item to the library in order to use it later
+
+library.add(faTrash);
 
 class App extends React.Component {
+
 
   constructor(props){
     super(props);
